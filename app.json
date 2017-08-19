@@ -1,0 +1,6 @@
+{
+  "name": "keydrop",
+  "description": "Key drop box",
+  "repository": "https://github.com/heroku/php-getting-started",
+  "addons": []
+}
