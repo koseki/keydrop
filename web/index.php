@@ -155,7 +155,7 @@ class Keydrop
         }
 ?>
 <p>Submit your password. We will add your account soon.</p>
-<form method="post" action="">
+<form method="post" action="" autocomplete="off">
   ID: <input name="username" type="text">
   PASS: <input name="password" type="text">
   <input type="submit" name="submit" value="submit">
