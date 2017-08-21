@@ -1,6 +1,6 @@
 {
   "name": "keydrop",
-  "description": "Key drop box",
-  "repository": "https://github.com/heroku/php-getting-started",
+  "description": "Receive password safely using HTTPS and RSA public key or htpasswd",
+  "repository": "https://github.com/koseki/keydrop",
   "addons": []
 }
