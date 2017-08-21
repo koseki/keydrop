@@ -113,7 +113,7 @@ class Keydrop
             $htpasswd = new HTPasswd();
             $key = $this->username . ':' . $htpasswd->md5($this->password);
         } else {
-            $pubkey = getenv('PUBKEY');
+            $pubkey = getenv('PUBLICKEY');
             openssl_public_encrypt($this->password, $raw, $pubkey);
             $key = base64_encode($raw);
         }
