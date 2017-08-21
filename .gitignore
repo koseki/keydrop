@@ -12,3 +12,4 @@ Desktop.ini
 
 vendor/
 .env
+keys/*.pem
