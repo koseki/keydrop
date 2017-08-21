@@ -1,6 +1,21 @@
 {
   "name": "keydrop",
-  "description": "Receive password safely using HTTPS and RSA public key or htpasswd",
+  "description": "Receive passwords safely using HTTPS and htpasswd or public key encryption",
   "repository": "https://github.com/koseki/keydrop",
-  "addons": []
+  "addons": ["heroku-postgresql:hobby-dev"],
+  "env": {
+    "ENCRYPTION_TYPE": {
+      "description": "Encryption type. htpasswd or publickey",
+      "value": "htpasswd"
+    },
+    "ACCEPT_PATHS": {
+      "description": "Comma separated path values. The other URLs will cause 404. The random value is recommended.",
+      "value": "/please_edit_config,/vEswu2ech4ta"
+    },
+    "PUBLICKEY": {
+      "description": "RSA public key. Set ENCRYPTION_TYPE to publickey",
+      "value": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv/+sBc0/rwwVLk3eqjVQ\nTxNhTa824aKQGdjkYLGvYnz4TOoWJVV3ziZ7kcmDkeB2tDczc87ngp5Qf8h1y9Be\nq2bqHeQ5HwrtTGxcP8Za+RGU12IxGimFQ/ZrZAVDmaXzC563ylz+0mnQYny/YbB+\ntHkFKnWz5Q5iPh4j8g46AyvElvKGXMN0tet5Fq/VKEX60F2AOb0/EU4YnGtQ4hpA\niKMoPPQ8UicMvv1wuii2yehX8RHlXCkVIRCSs9fi2HokkA4iFB4JUQCcPwubA4TD\n6CIfh2G8FxUptY5AyJAHAERWnHHnkzhqpSpF7wxW6JbA2uyulEpbL769tOjN1mj4\nAQIDAQAB\n-----END PUBLIC KEY-----\n"
+    }
+  },
+  "success_url": "/please_edit_config"
 }
