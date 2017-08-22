@@ -2,7 +2,7 @@
 
 class Keydrop
 {
-    public function connectDB()
+    private function connectDB()
     {
         $dbopts = parse_url(getenv('DATABASE_URL'));
         $dsn = sprintf('pgsql:host=%s;dbname=%s', $dbopts['host'], substr($dbopts['path'], 1));
@@ -15,7 +15,7 @@ class Keydrop
         return $pdo;
     }
 
-    public function createTableIfNotExists($pdo)
+    private function createTableIfNotExists($pdo)
     {
         $sql = 'CREATE TABLE IF NOT EXISTS keys (
             id serial PRIMARY KEY,
@@ -33,7 +33,7 @@ class Keydrop
         return true;
     }
 
-    public function save($path, $user, $key)
+    private function save($path, $user, $key)
     {
         $pdo = $this->connectDB();
         if (!$pdo) return;
@@ -70,7 +70,7 @@ class Keydrop
         return true;
     }
 
-    public function validate()
+    private function validate()
     {
         $error = '';
         $user = $this->username;
@@ -98,7 +98,7 @@ class Keydrop
         return $error;
     }
 
-    public function saveAccount()
+    private function saveAccount()
     {
         $type = getenv('ENCRYPTION_TYPE');
         if ($type == 'htpasswd') {
@@ -117,14 +117,14 @@ class Keydrop
         $this->renderThankYou();
     }
 
-    public function readPostData()
+    private function readPostData()
     {
         $this->username = empty($_POST['username']) ? null : $_POST['username'];
         $this->password = empty($_POST['password']) ? null : $_POST['password'];
         $this->submit = empty($_POST['submit']) ? null : $_POST['submit'];
     }
 
-    public function main()
+    private function main()
     {
         $this->readPostData();
         if (!empty($this->submit)) {
@@ -156,7 +156,7 @@ class Keydrop
         <?php
     }
 
-    public function renderForm($error = null)
+    private function renderForm($error = null)
     {
         if (!empty($error)) {
             echo "<p><strong>$error</strong></p>";
@@ -183,7 +183,7 @@ class Keydrop
         <?php
     }
 
-    public function renderThankYou()
+    private function renderThankYou()
     {
         $escaped = htmlspecialchars($this->username, ENT_QUOTES);
         ?>
