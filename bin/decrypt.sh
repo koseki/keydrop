@@ -3,7 +3,6 @@
 set -e
 
 if [ -f "$1" -a -f "$2" ]; then
-    echo
     base64 -D $1 | openssl rsautl -decrypt -inkey $2
     echo
 else
