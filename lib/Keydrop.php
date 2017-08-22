@@ -114,8 +114,7 @@ class Keydrop
             return;
         }
 
-        $escaped = htmlspecialchars($this->username, ENT_QUOTES);
-        require __DIR__ . '/../views/thankyou.php';
+        $this->renderThankYou();
     }
 
     public function readPostData()
@@ -140,8 +139,57 @@ class Keydrop
         }
     }
 
+    public function renderMain()
+    {
+        ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Keydrop - Password Inbox</title>
+  </head>
+  <body>
+    <?php $this->main(); ?>
+  </body>
+</html>
+        <?php
+    }
+
     public function renderForm($error = null)
     {
-        require __DIR__ . '/../views/form.php';
+        if (!empty($error)) {
+            echo "<p><strong>$error</strong></p>";
+        }
+        ?>
+<div>
+  <p>Submit your password. We will add your account soon.</p>
+  <form method="post" action="" autocomplete="off">
+    ID: <input name="username" type="text">
+    PASS: <input name="password" type="text">
+    <input type="submit" name="submit" value="submit">
+  </form>
+
+  <hr>
+
+  <p>Password must have:</p>
+  <ul>
+    <li>More than 10 characters</li>
+    <li>At least 1 numeric character (<code>0 - 9</code>)</li>
+    <li>At least 1 capital character (<code>A - Z</code>)</li>
+    <li>At lease 1 symbol character (<code>#$%@&amp;*!...</code>)</li>
+  </ul>
+</div>
+        <?php
+    }
+
+    public function renderThankYou()
+    {
+        $escaped = htmlspecialchars($this->username, ENT_QUOTES);
+        ?>
+<p>
+  Thank you <strong><?php echo $escaped; ?></strong>! We will add your account soon.
+</p>
+        <?php
     }
 }
