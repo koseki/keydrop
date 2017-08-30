@@ -1,0 +1,41 @@
+body {
+  color: #333;
+  font-family: arial, sans-serif;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 40px 5px;
+  padding: 0;
+}
+
+
+section p {
+  margin: 20px 20px;
+}
+
+section .lead {
+  margin: 40px 20px;
+}
+
+section form {
+  margin: 0 40px;
+}
+
+label {
+  margin: 0 5px;
+}
+
+ul {
+  margin: 20px;
+  line-height: 20px;
+}
+
+.submit {
+  font-size: 1.0em;
+  width: 100px;
+  margin-left: 10px;
+}

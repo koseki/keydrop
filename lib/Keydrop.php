@@ -148,6 +148,7 @@ class Keydrop
     <meta charset="utf-8">
     <meta name="robots" content="noindex,nofollow">
     <title>Keydrop - Password Inbox</title>
+    <link rel="stylesheet" href="/site.css">
   </head>
   <body>
     <?php $this->main(); ?>
@@ -162,12 +163,12 @@ class Keydrop
             echo "<p><strong>$error</strong></p>";
         }
         ?>
-<div>
-  <p>Submit your password. We will add your account soon.</p>
+<section>
+  <p class="lead">Submit your password. We will add your account soon.</p>
   <form method="post" action="" autocomplete="off">
-    ID: <input name="username" type="text">
-    PASS: <input name="password" type="text">
-    <input type="submit" name="submit" value="submit">
+    <label>ID: <input name="username" type="text"></label>
+    <label>Password: <input name="password" type="text"></label>
+    <input type="submit" name="submit" value="Submit" class="submit">
   </form>
 
   <hr>
@@ -179,7 +180,7 @@ class Keydrop
     <li>At least 1 capital character (<code>A - Z</code>)</li>
     <li>At lease 1 symbol character (<code>#$%@&amp;*!...</code>)</li>
   </ul>
-</div>
+</section>
         <?php
     }
 
@@ -187,9 +188,11 @@ class Keydrop
     {
         $escaped = htmlspecialchars($this->username, ENT_QUOTES);
         ?>
+<section>
 <p>
   Thank you <strong><?php echo $escaped; ?></strong>! We will add your account soon.
 </p>
+</section>
         <?php
     }
 }
