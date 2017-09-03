@@ -4,13 +4,13 @@
   "repository": "https://github.com/koseki/keydrop",
   "addons": ["heroku-postgresql:hobby-dev"],
   "env": {
-    "ENCRYPTION_TYPE": {
-      "description": "Encryption type. htpasswd or publickey",
-      "value": "htpasswd"
-    },
     "ACCEPT_PATHS": {
       "description": "Comma separated path values. The other URLs will return 404 error. The random value is recommended. e.g. /vEswu2ech4ta,/4pubruyuwAve.",
       "value": "/please_edit_config,/use_random_value"
+    },
+    "ENCRYPTION_TYPE": {
+      "description": "Encryption type. htpasswd or publickey",
+      "value": "htpasswd"
     },
     "PUBLICKEY": {
       "description": "RSA public key. Set ENCRYPTION_TYPE to publickey",
