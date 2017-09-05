@@ -4,7 +4,7 @@
 
 Keydrop is an instant Heroku application for receiving passwords safely.
 
-![form](https://user-images.githubusercontent.com/11028/30041495-914536b6-9225-11e7-8209-f803e39be696.png)
+<img src="https://user-images.githubusercontent.com/11028/30041495-914536b6-9225-11e7-8209-f803e39be696.png" alt="form" width="400">
 
 This will do
 
@@ -48,7 +48,9 @@ Click the following button.
 
 And you will see the configulation screen.
 
-![config](https://user-images.githubusercontent.com/11028/30041490-88f772e4-9225-11e7-921e-970290005b74.png)
+<a href="https://user-images.githubusercontent.com/11028/30041490-88f772e4-9225-11e7-921e-970290005b74.png" target="_blank">
+<img src="https://user-images.githubusercontent.com/11028/30041490-88f772e4-9225-11e7-921e-970290005b74.png" alt="config" width="400">
+</a>
 
 ### App name
 
