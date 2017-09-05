@@ -149,6 +149,20 @@ class Keydrop
     <meta name="robots" content="noindex,nofollow">
     <title>Keydrop - Password Inbox</title>
     <link rel="stylesheet" href="/site.css">
+    <script>
+function togglePassword() {
+    var field = document.getElementById('password');
+    var toggle = document.getElementById('passwordToggle');
+    var inputType = field.type;
+    if (inputType == 'password') {
+        field.type = 'text';
+        toggle.text = 'Hide';
+    } else {
+        field.type = 'password';
+        toggle.text = 'Show';
+    }
+}
+    </script>
   </head>
   <body>
     <?php $this->main(); ?>
@@ -167,7 +181,8 @@ class Keydrop
   <p class="lead">Submit your password. We will add your account soon.</p>
   <form method="post" action="" autocomplete="off">
     <label>ID: <input name="username" type="text"></label>
-    <label>Password: <input name="password" type="text"></label>
+    <label>Password: <input name="password" type="password" id="password"></label> <a href="javascript:void(0)" id="passwordToggle" onClick="togglePassword(); return false;">Show</a>
+    <br><br>
     <input type="submit" name="submit" value="Submit" class="submit">
   </form>
 

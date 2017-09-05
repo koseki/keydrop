@@ -39,3 +39,9 @@ ul {
   width: 100px;
   margin-left: 10px;
 }
+
+#passwordToggle {
+  font-size: 0.8em;
+  color: #33c;
+  text-decoration: none;
+}
