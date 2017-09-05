@@ -90,8 +90,10 @@ class Keydrop
             $error = 'ERROR: Password is too long';
         } elseif (!preg_match('{\d}', $pass)) {
             $error = 'ERROR: Password must include numeric character.';
+        } elseif (!preg_match('{[a-z]}', $pass)) {
+            $error = 'ERROR: Password must include lowercase character.';
         } elseif (!preg_match('{[A-Z]}', $pass)) {
-            $error = 'ERROR: Password must include capital character.';
+            $error = 'ERROR: Password must include uppercase character.';
         } elseif (!preg_match("{[$symbol]}", $pass)) {
             $error = 'ERROR: Password must include symbol character.';
         }
