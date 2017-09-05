@@ -192,8 +192,8 @@ function togglePassword() {
   <ul>
     <li>More than 10 characters</li>
     <li>At least 1 numeric character (<code>0 - 9</code>)</li>
-    <li>At least 1 capital character (<code>A - Z</code>)</li>
-    <li>At lease 1 symbol character (<code>#$%@&amp;*!...</code>)</li>
+    <li>At least 1 uppercase character (<code>A - Z</code>)</li>
+    <li>At least 1 symbol character (<code>#$%@&amp;*!...</code>)</li>
   </ul>
 </section>
         <?php
