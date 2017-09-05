@@ -180,7 +180,7 @@ function togglePassword() {
         }
         ?>
 <section>
-  <p class="lead">Submit your password. We will add your account soon.</p>
+  <p class="lead">Submit your new password. We will add your account soon.</p>
   <form method="post" action="" autocomplete="off">
     <label>ID: <input name="username" type="text"></label>
     <label>Password: <input name="password" type="password" id="password"></label> <a href="javascript:void(0)" id="passwordToggle" onClick="togglePassword(); return false;">Show</a>
@@ -190,13 +190,14 @@ function togglePassword() {
 
   <hr>
 
-  <p>Password must have:</p>
+  <p>The password must have:</p>
   <ul>
     <li>More than 10 characters</li>
     <li>At least 1 numeric character (<code>0 - 9</code>)</li>
     <li>At least 1 uppercase character (<code>A - Z</code>)</li>
     <li>At least 1 symbol character (<code>#$%@&amp;*!...</code>)</li>
   </ul>
+  <p>Do not use the same password for other online services.</p>
 </section>
         <?php
     }
