@@ -2,7 +2,11 @@
 
 ## About
 
-Keydrop is an instant Heroku application for receiving passwords safely. This will do
+Keydrop is an instant Heroku application for receiving passwords safely.
+
+![form](https://user-images.githubusercontent.com/11028/30041495-914536b6-9225-11e7-8209-f803e39be696.png)
+
+This will do
 
  * Encryption
  * Validation
@@ -44,7 +48,7 @@ Click the following button.
 
 And you will see the configulation screen.
 
-![keydrop-heroku-config](https://user-images.githubusercontent.com/11028/30004367-d4970fb6-9108-11e7-8636-99959b4b717b.png)
+![config](https://user-images.githubusercontent.com/11028/30041490-88f772e4-9225-11e7-921e-970290005b74.png)
 
 ### App name
 
