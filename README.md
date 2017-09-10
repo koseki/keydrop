@@ -1,5 +1,7 @@
 # Keydrop
 
+![keydrop](https://user-images.githubusercontent.com/11028/30245321-a55b7b44-9610-11e7-9a9b-006622d29346.png)
+
 ## About
 
 Keydrop is an instant Heroku application for receiving passwords safely.
