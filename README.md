@@ -38,8 +38,9 @@ If you want to change the conditions, please clone the source code from Heroku g
 
 1. [Create a Heroku account.](https://www.heroku.com/)
 2. [Install the Heroku command line app.](https://devcenter.heroku.com/articles/heroku-cli)
-3. Install OpenSSL if you want to use the public key encryption type.
-
+3. [Install PostgreSQL](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup) to connect the Heroku database. You only need the client.
+   * e.g.) `$ brew install postgresql`
+4. Install OpenSSL if you want to use the public key encryption type.
 
 
 ## Start
@@ -101,7 +102,25 @@ openssl rsa -pubout -in private-$DATE.pem -out public-$DATE.pem
 
 ## Get the result
 
-You can receive the passwords data using `heroku pg:sql` command.
+Use [`./bin/dump.sh`](https://github.com/koseki/keydrop/blob/master/bin/dump.sh).
+
+```
+$ ./bin/dump.sh random-appname-12345
+--> Connecting to postgresql-dbname-54321
+1       2017-08-30 03:06:57+00  htpasswd        /zoac5l7spoaY   test-1  test-1:$apr1$4.Pz0U/W$TppMU9SjE/W0yg1FAPiMS/
+2       2017-08-30 03:08:19+00  publickey       /zoac5l7spoaY   test-2  nJ97fbhHIkZAMISp/zXVETvitUl8Qlbi1pyOTtoF3ybI9EDrqenPFb4WMOISrTn8sW+Qu5xvNsjaMEIC3j0Md+hmtEzlLmVK+Nb9bq989I9TnmjgdtFE9klyKkhb5J7r+7SKqBgzfmu7kAoREYBtg05hvNb3mJXGbAruybElbZlxNgf06b5f6W/kkHtGcJaV49oNHKBEmg03ceMip2wP5H6tk/BS6O4FTrEKvpYsn4+Kh6+7JMioCVQEXz3NvpH0BIkmnGncXBZTdtPihju7srb0uEHe0sys66PPBZGZQWbisBdr9knJ5WTfnh2iWLOGv2NgOwfgXQZyMdizINALDw==
+```
+
+You can also decrypt the pulickey encryption using `dump.sh`.
+
+```
+$ ./bin/dump.sh random-appname-12345 ./keys/insecure-private.pem
+--> Connecting to postgresql-dbname-54321
+1       2017-08-30 03:06:57+00  htpasswd        /zoac5l7spoaY   test-1  test-1:$apr1$4.Pz0U/W$TppMU9SjE/W0yg1FAPiMS/
+2       2017-08-30 03:08:19+00  publickey       /zoac5l7spoaY   test-2  testTEST1234!!!
+```
+
+Or use `heroku pg:sql` command.
 
 ```console
 $ heroku pg:psql --app random-appname-12345
@@ -118,23 +137,10 @@ random-appname-12345::DATABASE=> select * from keys;
 (2 rows)
 ```
 
-### Decryption (publickey)
+If you want to decrypt the key manually, do this.
 
-Use `bin/decrypt.sh`.
-
-```bash
-#! /bin/bash
-
-set -e
-
-if [ -f "$1" -a -f "$2" ]; then
-    base64 -D $1 | openssl rsautl -decrypt -inkey $2
-    echo
-else
-    echo "Usage: decrypt.sh encrypted_file private_key_file"
-    exit 1
-fi
-```
+ 1. Base64 decode `$ base64 -D input_file`
+ 2. Decrypt `$ openssl rsautl -decrypt -inkey privatekey_file -in base64decoded_file`
 
 ### Clean up
 
