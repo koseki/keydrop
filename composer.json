@@ -1,9 +1,9 @@
 {
   "require" : {
-    "php": "^7.1.0",
-    "paragonie/random_compat": "^2.0"
+    "php": "^7.1.0"
   },
   "require-dev": {
-    "heroku/heroku-buildpack-php": "*"
+    "heroku/heroku-buildpack-php": "*",
+    "phpunit/phpunit": "^6.3"
   }
 }
