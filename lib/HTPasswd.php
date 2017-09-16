@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MD5 based htpasswd entry generator
+ * APR1 htpasswd entry generator
  *
  *   Original: https://stackoverflow.com/questions/2994637/how-to-edit-htpasswd-using-php/8786956#8786956
  *   Spec: https://httpd.apache.org/docs/2.4/misc/password_encryptions.html
@@ -16,9 +16,9 @@
 class HTPasswd
 {
     /**
-     * Generate MD5 htpasswd entry.
+     * Generate APR1 htpasswd entry.
      */
-    public function md5($plainpasswd, $salt = null)
+    public function apr1($plainpasswd, $salt = null)
     {
         if (empty($salt)) {
             $salt = $this->salt();

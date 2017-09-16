@@ -105,7 +105,7 @@ class Keydrop
         $type = getenv('ENCRYPTION_TYPE');
         if ($type == 'htpasswd') {
             $htpasswd = new HTPasswd();
-            $key = $this->username . ':' . $htpasswd->md5($this->password);
+            $key = $this->username . ':' . $htpasswd->apr1($this->password);
         } else {
             $pubkey = getenv('PUBLICKEY');
             openssl_public_encrypt($this->password, $raw, $pubkey);
