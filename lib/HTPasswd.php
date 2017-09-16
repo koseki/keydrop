@@ -1,5 +1,7 @@
 <?php
 
+namespace Koseki\Keydrop;
+
 /**
  * APR1 htpasswd entry generator
  *

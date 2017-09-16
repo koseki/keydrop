@@ -1,5 +1,7 @@
 <?php
 
+namespace Koseki\Keydrop;
+
 class Keydrop
 {
     private function connectDB()
@@ -7,7 +9,7 @@ class Keydrop
         $dbopts = parse_url(getenv('DATABASE_URL'));
         $dsn = sprintf('pgsql:host=%s;dbname=%s', $dbopts['host'], substr($dbopts['path'], 1));
 
-        $pdo = new PDO($dsn, $dbopts['user'], $dbopts['pass']);
+        $pdo = new \PDO($dsn, $dbopts['user'], $dbopts['pass'] ?? null);
         if (!$pdo) {
             echo "ERROR: can't connect";
             return false;

@@ -1,10 +1,8 @@
 <?php
 
-require '../vendor/autoload.php';
-require __DIR__ . '/../lib/HTPasswd.php';
-require __DIR__ . '/../lib/Keydrop.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-date_default_timezone_set('UTC');
+use \Koseki\Keydrop\Keydrop;
 
 $keydrop = new Keydrop();
 if ($keydrop->checkPath()) {
