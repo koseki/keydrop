@@ -123,9 +123,9 @@ class Keydrop
 
     private function readPostData()
     {
-        $this->username = empty($_POST['username']) ? null : $_POST['username'];
-        $this->password = empty($_POST['password']) ? null : $_POST['password'];
-        $this->submit = empty($_POST['submit']) ? null : $_POST['submit'];
+        $this->username = $_POST['username'] ?? null;
+        $this->password = $_POST['password'] ?? null;
+        $this->submit = $_POST['submit'] ?? null;
     }
 
     private function main()
